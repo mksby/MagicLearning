@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Тренировка</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="!started">
+    <p>Наша методика построена на ... Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+
+    <p>Вам нужно будет придумать ... Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+    <p>Пример:</p>
+
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Слог "Мо"</ion-card-title>
+          </ion-card-header>
+            <img src="https://icdn.lenta.ru/images/2018/08/29/16/20180829161939214/detail_e16b82ca05c0ee497de4481c8c70ac91.jpg" />
+            <ion-chip>
+              <ion-label>Мотоцикл</ion-label>
+            </ion-chip>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Слог "Хо"</ion-card-title>
+          </ion-card-header>
+            <img src="https://a.espncdn.com/photo/2020/0822/r734963_1296x729_16-9.jpg" />
+            <ion-chip>
+              <ion-label>Хоккей</ion-label>
+            </ion-chip>
+        </ion-card>
+      </ion-slide>
+      <ion-slide>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Слог "Ле"</ion-card-title>
+          </ion-card-header>
+            <img src="https://api.time.com/wp-content/uploads/2016/01/leopard.jpeg" />
+            <ion-chip>
+              <ion-label>Леопард</ion-label>
+            </ion-chip>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+    <div class="ion-text-center">
+      <ion-button (click)="start()">Начать тренировку</ion-button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="started">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">"{{slides[slideIndex].slog}}"</ion-card-title>
+      </ion-card-header>
+        <img src="{{slides[slideIndex].src}}" *ngIf="showHelp" />
+        <div class="ion-text-center"  *ngIf="showHelp">
+          <ion-chip>
+            <ion-label>{{slides[slideIndex].name}}</ion-label>
+          </ion-chip>
+        </div>
+    </ion-card>
+
+    <div class="ion-text-center">
+      <ion-button (click)="help()">Подсказка</ion-button>
+      <ion-button (click)="next()">Дальше</ion-button>
+    </div>
+  </ng-container>
+</ion-content>
