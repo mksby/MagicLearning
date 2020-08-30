@@ -1,0 +1,40 @@
+<ion-content>
+  <div class="ion-text-center header">
+    <div>
+      <div>набор {{setIndex + 1}}</div>
+      <div>слово {{slideIndex + 1}}/{{slides[setIndex].length}}</div>
+    </div>
+    <div class="time" id="time">06:00</div>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        <h3>{{slides[setIndex][slideIndex].russian}}</h3>
+      </ion-card-title>
+    </ion-card-header>
+
+    <div>
+      <img src="{{slides[setIndex][slideIndex].image}}" alt="">
+    </div>
+
+    <div>
+      <h3 class="ion-text-center">
+        <ng-container *ngFor="let slog of slides[setIndex][slideIndex].asoc.name; let i = index;">
+          <span class="slog" *ngIf="!i">{{slog}}</span>
+          <span *ngIf="i">-{{slog}}</span>
+        </ng-container>
+      </h3>
+      <img src="{{slides[setIndex][slideIndex].asoc.src}}" />
+    </div>
+
+    <div class="ion-text-center chips">
+      <div>Испанский: <ion-chip>{{slides[setIndex][slideIndex].spanish}}</ion-chip></div>
+      <div>Произношение: <ion-chip>{{slides[setIndex][slideIndex].speak}}</ion-chip></div>
+    </div>
+  </ion-card>
+
+  <div class="ion-text-center footer">
+    <ion-button (click)="next()">Запомнил! Следующее слово</ion-button>
+  </div>
+</ion-content>

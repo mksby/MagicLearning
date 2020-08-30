@@ -45,7 +45,7 @@ export class TrainingPage implements OnInit {
       this.showHelp = false;
       this.slideIndex += 1;
     } else {
-      this.router.navigate(['tabs']);
+      this.router.navigate(['learning']);
     }
   }
 }
