@@ -49,8 +49,8 @@ export class LearningPage implements OnInit {
 function startTimer(duration, display, endcallback) {
   var timer = duration, minutes, seconds;
   return setInterval(function () {
-      minutes = parseInt(timer / 60, 10);
-      seconds = Math.max(parseInt(timer % 60, 10), 0);
+      minutes = parseInt(String(timer / 60), 10);
+      seconds = Math.max(parseInt(String(timer % 60), 10), 0);
 
       minutes = minutes < 10 ? "0" + minutes : minutes;
       seconds = seconds < 10 ? "0" + seconds : seconds;
