@@ -14,6 +14,8 @@ export class LearningPage implements OnInit {
   setIndex = 0;
   slideIndex = 0;
   timer;
+  step = 0;
+  help = false;
 
   constructor() { }
 
@@ -24,23 +26,28 @@ export class LearningPage implements OnInit {
     });
   }
 
+  setHelp() {
+    this.help = true;
+  }
+
   next() {
+    setTimeout(() => this.content.scrollToTop(0));
+    this.help = false;
+
     if (this.slideIndex < this.slides[this.setIndex].length - 1) {
       this.slideIndex += 1;
-      setTimeout(() => this.content.scrollToTop(0));
     } else {
-      if (this.setIndex < this.slides.length - 1) {
-        alert('Поздравляем! Запускаем следующий сет!');
+      this.slideIndex = 0;
+
+      if (this.step < 2) {
+        this.step += 1;
+      } else {
+        this.step = 0;
+        this.setIndex += 1;
         clearInterval(this.timer);
         this.timer = startTimer(60 * 6, document.querySelector('#time'), () => {
           clearInterval(this.timer);
         });
-        this.setIndex += 1;
-        this.slideIndex = 0;
-        setTimeout(() => this.content.scrollToTop(0));
-      } else {
-        clearInterval(this.timer);
-        alert('Поздравляем! Вы все прошли!');
       }
     }
   }
