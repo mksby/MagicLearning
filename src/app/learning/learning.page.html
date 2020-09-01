@@ -3,7 +3,7 @@
     <div>
       <div>набор {{setIndex + 1}}/{{slides.length}}</div>
       <div>слово {{slideIndex + 1}}/{{slides[setIndex].length}}</div>
-      <div>этап обучения {{step + 1}}/3</div>
+      <div>этап обучения {{step + 1}}/4</div>
     </div>
     <div class="time" id="time">06:00</div>
   </div>
@@ -11,6 +11,7 @@
   <div class="ion-text-center" *ngIf="step === 0"><h3>Запоминайте произношение</h3></div>
   <div class="ion-text-center" *ngIf="step === 1"><h3>Произнесите по-испански вслух</h3></div>
   <div class="ion-text-center" *ngIf="step === 2"><h3>Вспомните перевод</h3></div>
+  <div class="ion-text-center" *ngIf="step === 3"><h3>Произнесите по-испански вслух</h3></div>
 
   <ng-container *ngIf="step === 0">
     <ion-card>
@@ -66,6 +67,24 @@
     </ion-card>
   </ng-container>
 
+  <ng-container *ngIf="step === 3">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">
+          <h3>{{slides[setIndex][slideIndex].russian}}</h3>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card *ngIf="help">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">
+          <h3>{{slides[setIndex][slideIndex].speak}}</h3>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ng-container>
+
   <div class="ion-text-center footer">
     <ng-container *ngIf="step === 0">
       <ion-button (click)="next()">Запомнил! Следующее слово</ion-button>
@@ -77,6 +96,10 @@
     <ng-container *ngIf="step === 2">
       <ion-button (click)="setHelp()" *ngIf="!help">Забыл! Подсказка!</ion-button>
       <ion-button (click)="next()">Вспомнил! Следующее слово</ion-button>
+    </ng-container>
+    <ng-container *ngIf="step === 3">
+      <ion-button (click)="setHelp()" *ngIf="!help">Забыл! Подсказка!</ion-button>
+      <ion-button (click)="next()">Готово! Следующее слово</ion-button>
     </ng-container>
   </div>
 </ion-content>

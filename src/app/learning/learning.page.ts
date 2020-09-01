@@ -39,7 +39,7 @@ export class LearningPage implements OnInit {
     } else {
       this.slideIndex = 0;
 
-      if (this.step < 2) {
+      if (this.step < 3) {
         this.step += 1;
       } else {
         this.step = 0;
