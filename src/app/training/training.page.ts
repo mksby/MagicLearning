@@ -16,7 +16,7 @@ export class TrainingPage implements OnInit {
 
   started = false;
   showHelp = false;
-  words = words1.concat(words2).concat(words3).sort(() => 0.5 - Math.random()).slice(0, 50).map(word => ({
+  words = words1.concat(words2).concat(words3).sort(() => 0.5 - Math.random()).slice(0, 2).map(word => ({
     word,
     step: 0
   }));
@@ -49,7 +49,9 @@ export class TrainingPage implements OnInit {
     if (this.words[this.wordIndex].step === 3) {
       setTimeout(() => {
         this.words.splice(this.wordIndex, 1);
-        this.words[this.wordIndex].step = 0;
+        if (this.words[this.wordIndex]) {
+          this.words[this.wordIndex].step = 0;
+        }
 
         this.showEnd = this.words.length <= 10 && this.round >= 3;
 

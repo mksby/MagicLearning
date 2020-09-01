@@ -45,7 +45,7 @@ export class LearningPage implements OnInit {
         this.step = 0;
         this.setIndex += 1;
         clearInterval(this.timer);
-        this.timer = startTimer(60 * 6, document.querySelector('#time'), () => {
+        this.timer = startTimer(60 * 8, document.querySelector('#time'), () => {
           clearInterval(this.timer);
         });
       }
