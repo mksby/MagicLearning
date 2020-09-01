@@ -16,7 +16,7 @@ export class TrainingPage implements OnInit {
 
   started = false;
   showHelp = false;
-  words = words1.concat(words2).concat(words3).sort(() => 0.5 - Math.random()).slice(0, 2).map(word => ({
+  words = words1.concat(words2).concat(words3).sort(() => 0.5 - Math.random()).slice(0, 50).map(word => ({
     word,
     step: 0
   }));
