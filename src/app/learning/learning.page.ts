@@ -20,7 +20,7 @@ export class LearningPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.timer = startTimer(60 * 6, document.querySelector('#time'), () => {
+    this.timer = startTimer(60 * 8, document.querySelector('#time'), () => {
       clearInterval(this.timer);
       alert('Время закончилось.. Но вы можете продолжать');
     });

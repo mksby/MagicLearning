@@ -14,9 +14,9 @@
 
     <ng-container>
       <ion-card [ngClass]="{
-        step1: makeStep === 1,
-        step2: makeStep === 2,
-        step3: makeStep === 3
+        step1: words[wordIndex].step === 1,
+        step2: words[wordIndex].step === 2,
+        step3: words[wordIndex].step === 3
       }" class="started" (click)="make()">
         <ion-card-header>
           <ion-card-title class="ion-text-center">{{words[wordIndex].word}}</ion-card-title>
@@ -25,6 +25,7 @@
 
       <div class="ion-text-center">
         <ion-button (click)="next()">Пропустить</ion-button>
+        <ion-button *ngIf="showEnd" (click)="finish()">Закончить</ion-button>
       </div>
     </ng-container>
   </div>

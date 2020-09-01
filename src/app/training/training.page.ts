@@ -20,6 +20,7 @@ export class TrainingPage implements OnInit {
     word,
     step: 0
   }));
+  round = 0;
   wordsCount = this.words.length;
 
   slides = [
@@ -32,7 +33,7 @@ export class TrainingPage implements OnInit {
 
   slideIndex = 0;
   wordIndex = 0;
-  makeStep = 0;
+  showEnd = false;
   colors = ['#dc3545', '#ffc107', '#28a745'];
 
   constructor(
@@ -43,13 +44,14 @@ export class TrainingPage implements OnInit {
   }
 
   make() {
-    this.makeStep += 1;
     this.words[this.wordIndex].step += 1;
 
-    if (this.makeStep === 3) {
+    if (this.words[this.wordIndex].step === 3) {
       setTimeout(() => {
-        this.words.shift();
-        this.makeStep = 0;
+        this.words.splice(this.wordIndex, 1);
+        this.words[this.wordIndex].step = 0;
+
+        this.showEnd = this.words.length <= 10 && this.round >= 3;
 
         if (!this.words[this.wordIndex]) {
           if (this.words[0]) {
@@ -58,8 +60,12 @@ export class TrainingPage implements OnInit {
             this.router.navigate(['learning']);
           }
         }
-      }, 400);
+      }, 300);
     }
+  }
+
+  finish() {
+    this.router.navigate(['learning']);
   }
 
   start() {
@@ -71,8 +77,13 @@ export class TrainingPage implements OnInit {
   }
 
   next() {
-    this.makeStep = 0;
     this.wordIndex += 1;
+    if (this.wordIndex > this.words.length - 1) {
+      this.wordIndex = 0;
+      this.round += 1;
+    }
+
+    this.showEnd = this.words.length <= 10 && this.round >= 3;
     // if (this.slideIndex < this.slides.length - 1) {
     //   this.showHelp = false;
     //   this.slideIndex += 1;
