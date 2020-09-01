@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, IonCard } from '@ionic/angular';
+
+import words1 from './words1.js';
+import words2 from './words2.js';
+import words3 from './words3.js';
 
 @Component({
   selector: 'app-training',
@@ -8,12 +12,15 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./training.page.scss'],
 })
 export class TrainingPage implements OnInit {
+  @ViewChild('card') card: ElementRef;
+
   started = false;
-  slideOpts = {
-    initialSlide: 0,
-    speed: 400
-  };
   showHelp = false;
+  words = words1.concat(words2).concat(words3).sort(() => 0.5 - Math.random()).slice(0, 50).map(word => ({
+    word,
+    step: 0
+  }));
+  wordsCount = this.words.length;
 
   slides = [
     {slog: 'Ва', name: 'варежки', src: 'https://lh3.googleusercontent.com/proxy/7k9DuYcypupl0guBWqY_WRRzI0KwtO5ZGHzZ0bzTfPNSfOtk5UCbKtlVpzY9rMCkW4ci0bMEEphXMV_qcKmtHO5ovLpn79r8C6YhKhu_8sjo0KLWjfitV2IbW1gGGK2MBwB4na71oV76MwLpgdyRVhIBmJNpy61ook5byDU'},
@@ -24,12 +31,35 @@ export class TrainingPage implements OnInit {
   ]
 
   slideIndex = 0;
+  wordIndex = 0;
+  makeStep = 0;
+  colors = ['#dc3545', '#ffc107', '#28a745'];
 
   constructor(
     private router: Router
   ) {}
 
   ngOnInit() {
+  }
+
+  make() {
+    this.makeStep += 1;
+    this.words[this.wordIndex].step += 1;
+
+    if (this.makeStep === 3) {
+      setTimeout(() => {
+        this.words.shift();
+        this.makeStep = 0;
+
+        if (!this.words[this.wordIndex]) {
+          if (this.words[0]) {
+            this.wordIndex = 0;
+          } else {
+            this.router.navigate(['learning']);
+          }
+        }
+      }, 400);
+    }
   }
 
   start() {
@@ -41,11 +71,13 @@ export class TrainingPage implements OnInit {
   }
 
   next() {
-    if (this.slideIndex < this.slides.length - 1) {
-      this.showHelp = false;
-      this.slideIndex += 1;
-    } else {
-      this.router.navigate(['learning']);
-    }
+    this.makeStep = 0;
+    this.wordIndex += 1;
+    // if (this.slideIndex < this.slides.length - 1) {
+    //   this.showHelp = false;
+    //   this.slideIndex += 1;
+    // } else {
+    //   this.router.navigate(['learning']);
+    // }
   }
 }

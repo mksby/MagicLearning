@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./hello/hello.module').then( m => m.HelloPageModule)
-  // },
   {
     path: '',
-    loadChildren: () => import('./training/training.module').then( m => m.TrainingPageModule)
+    loadChildren: () => import('./hello/hello.module').then( m => m.HelloPageModule)
   },
   {
-    path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    path: 'training',
+    loadChildren: () => import('./training/training.module').then( m => m.TrainingPageModule)
   },
+  // {
+  //   path: 'tabs',
+  //   loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  // },
   {
     path: 'learning',
     loadChildren: () => import('./learning/learning.module').then( m => m.LearningPageModule)

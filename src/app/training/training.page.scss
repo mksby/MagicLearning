@@ -13,3 +13,41 @@ ion-button {
 ion-chip {
     margin: 15px 0;
 }
+
+.content {
+    height: 100%;
+    padding-top: 30%;
+}
+
+.content ion-card {
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    ion-card {
+        transition: background-color .3s;
+    }
+    ion-button {
+        margin: 5px 20px 0px;;
+    }
+    ion-card-title {
+        font-size: 50px;
+        font-weight: bold;
+        text-shadow: 1px -1px 0 #000;
+    }
+}
+
+.step1 {
+    background-color: #dc3545;
+}
+
+.step2 {
+    background-color: #ffc107;
+}
+
+.step3 {
+    background-color: #28a745;
+}

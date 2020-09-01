@@ -1,9 +1,41 @@
 <ion-content>
-  <div class="center">
-    <h1>Добро пожаловать</h1>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Слог "Мо"</ion-card-title>
+        </ion-card-header>
+          <!-- <img src="https://icdn.lenta.ru/images/2018/08/29/16/20180829161939214/detail_e16b82ca05c0ee497de4481c8c70ac91.jpg" /> -->
+          <ion-chip>
+            <ion-label>Мотоцикл</ion-label>
+          </ion-chip>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Слог "Хо"</ion-card-title>
+        </ion-card-header>
+          <!-- <img src="https://a.espncdn.com/photo/2020/0822/r734963_1296x729_16-9.jpg" /> -->
+          <ion-chip>
+            <ion-label>Хоккей</ion-label>
+          </ion-chip>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Слог "Ле"</ion-card-title>
+        </ion-card-header>
+          <!-- <img src="https://api.time.com/wp-content/uploads/2016/01/leopard.jpeg" /> -->
+          <ion-chip>
+            <ion-label>Леопард</ion-label>
+          </ion-chip>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
 
-    <p>Приложение позволяет ... Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad, culpa magnam dolores, quae laboriosam consequuntur magni atque rerum maiores officia nam fuga tempore sint? Ullam exercitationem aut amet sit nihil?</p>
-
-    <ion-button routerLink="/training">Пройти обучение</ion-button>
+  <div class="ion-text-center">
+    <ion-button (click)="start()">Начать тренировку</ion-button>
   </div>
 </ion-content>
