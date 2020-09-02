@@ -1,41 +1,33 @@
 <ion-content>
-  <ion-slides pager="true" [options]="slideOpts">
-    <ion-slide>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Слог "Мо"</ion-card-title>
-        </ion-card-header>
-          <!-- <img src="https://icdn.lenta.ru/images/2018/08/29/16/20180829161939214/detail_e16b82ca05c0ee497de4481c8c70ac91.jpg" /> -->
-          <ion-chip>
-            <ion-label>Мотоцикл</ion-label>
-          </ion-chip>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Слог "Хо"</ion-card-title>
-        </ion-card-header>
-          <!-- <img src="https://a.espncdn.com/photo/2020/0822/r734963_1296x729_16-9.jpg" /> -->
-          <ion-chip>
-            <ion-label>Хоккей</ion-label>
-          </ion-chip>
-      </ion-card>
-    </ion-slide>
-    <ion-slide>
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Слог "Ле"</ion-card-title>
-        </ion-card-header>
-          <!-- <img src="https://api.time.com/wp-content/uploads/2016/01/leopard.jpeg" /> -->
-          <ion-chip>
-            <ion-label>Леопард</ion-label>
-          </ion-chip>
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
+  <div class="content">
+    <p>На следующем экране вам будут даны 50 частей слов</p>
+    <p>На каждое слово нужно будет придумать три ярких ассоциации</p>
+    <p>Слово ассоциация должно начинаться с предложенной частью слова и может быть просто созвучным</p>
+    <p>После каждой новой ассоциации, <u><b>жмите на карточку</b></u> со словом чтобы отметить прогресс</p>
+    <p>Как только вы пройдете 80% и более слов, станет доступным режим обучения итальянских слов</p>
 
-  <div class="ion-text-center">
-    <ion-button (click)="start()">Начать тренировку</ion-button>
+    <h4>Пример слова:</h4>
+
+    <ion-card [ngClass]="{
+      step1: step === 1,
+      step2: step === 2,
+      step3: step === 3
+    }" (click)="make()">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">
+          <h3>Ар</h3>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <p>Возможные ассоциации:
+      <span [ngClass]="{step1: step > 0}"><b>ОР</b>ангутанг</span>,
+      <span [ngClass]="{step2: step > 1}"><b>АР</b>балет</span>,
+      <span [ngClass]="{step3: step > 2}"><b>АР</b>ахис</span>
+    </p>
+
+    <div class="ion-text-center">
+      <ion-button (click)="start()">Начать тренировку</ion-button>
+    </div>
   </div>
 </ion-content>

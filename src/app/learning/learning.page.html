@@ -1,23 +1,25 @@
 <ion-content>
   <div class="ion-text-center header">
     <div>
-      <div>набор {{setIndex + 1}}/{{slides.length}}</div>
-      <div>слово {{slideIndex + 1}}/{{slides[setIndex].length}}</div>
+      <div>набор {{setIndex + 1}}/{{words.length}}</div>
+      <div>слово {{slideIndex + 1}}/{{words[setIndex].length}}</div>
       <div>этап обучения {{step + 1}}/4</div>
     </div>
     <div class="time" id="time">06:00</div>
   </div>
 
   <div class="ion-text-center" *ngIf="step === 0"><h3>Запоминайте произношение</h3></div>
-  <div class="ion-text-center" *ngIf="step === 1"><h3>Произнесите по-испански вслух</h3></div>
+  <!-- <div class="ion-text-center" *ngIf="step === 1"><h3>Произнесите по-испански вслух</h3></div> -->
+  <div class="ion-text-center" *ngIf="step === 1"><h3>Произнесите по-итальянски вслух</h3></div>
   <div class="ion-text-center" *ngIf="step === 2"><h3>Вспомните перевод</h3></div>
-  <div class="ion-text-center" *ngIf="step === 3"><h3>Произнесите по-испански вслух</h3></div>
+  <!-- <div class="ion-text-center" *ngIf="step === 3"><h3>Произнесите по-испански вслух</h3></div> -->
+  <div class="ion-text-center" *ngIf="step === 3"><h3>Произнесите по-итальянски вслух</h3></div>
 
   <ng-container *ngIf="step === 0">
     <ion-card>
       <ion-card-header>
         <ion-card-title class="ion-text-center">
-          <h3>{{slides[setIndex][slideIndex].russian}}</h3>
+          <h3>{{words[setIndex][slideIndex].russian}}</h3>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
@@ -25,7 +27,7 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title class="ion-text-center">
-          <h3>{{slides[setIndex][slideIndex].speak}}</h3>
+          <h3>{{words[setIndex][slideIndex].speak}}</h3>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
@@ -35,7 +37,7 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title class="ion-text-center">
-          <h3>{{slides[setIndex][slideIndex].russian}}</h3>
+          <h3>{{words[setIndex][slideIndex].russian}}</h3>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
@@ -43,7 +45,7 @@
     <ion-card *ngIf="help">
       <ion-card-header>
         <ion-card-title class="ion-text-center">
-          <h3>{{slides[setIndex][slideIndex].speak}}</h3>
+          <h3>{{words[setIndex][slideIndex].speak}}</h3>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
@@ -53,7 +55,7 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title class="ion-text-center">
-          <h3>{{slides[setIndex][slideIndex].speak}}</h3>
+          <h3>{{words[setIndex][slideIndex].speak}}</h3>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
@@ -61,7 +63,7 @@
     <ion-card *ngIf="help">
       <ion-card-header>
         <ion-card-title class="ion-text-center">
-          <h3>{{slides[setIndex][slideIndex].russian}}</h3>
+          <h3>{{words[setIndex][slideIndex].russian}}</h3>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
@@ -71,7 +73,7 @@
     <ion-card>
       <ion-card-header>
         <ion-card-title class="ion-text-center">
-          <h3>{{slides[setIndex][slideIndex].russian}}</h3>
+          <h3>{{words[setIndex][slideIndex].russian}}</h3>
         </ion-card-title>
       </ion-card-header>
     </ion-card>
@@ -79,7 +81,7 @@
     <ion-card *ngIf="help">
       <ion-card-header>
         <ion-card-title class="ion-text-center">
-          <h3>{{slides[setIndex][slideIndex].speak}}</h3>
+          <h3>{{words[setIndex][slideIndex].speak}}</h3>
         </ion-card-title>
       </ion-card-header>
     </ion-card>

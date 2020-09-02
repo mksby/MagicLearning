@@ -1,8 +1,19 @@
-.center {
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    padding: 0 10% 20%;
+.content {
+    padding: 15px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.step1 {
+    background-color: #dc3545;
+}
+
+.step2 {
+    background-color: #ffc107;
+}
+
+.step3 {
+    background-color: #28a745;
 }

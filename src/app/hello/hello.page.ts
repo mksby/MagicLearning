@@ -12,11 +12,21 @@ export class HelloPage implements OnInit {
     speed: 400
   };
 
+  step = 0;
+
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
+  }
+
+  make() {
+    if (this.step === 3) {
+      this.step = 0;
+    } else {
+      this.step += 1;
+    }
   }
 
   start() {
