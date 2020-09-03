@@ -22,13 +22,13 @@
     </ion-card>
 
     <p>Возможные ассоциации:
-      <span [ngClass]="{step1: step > 0}"><b>ОР</b>ангутанг</span>,
-      <span [ngClass]="{step2: step > 1}"><b>АР</b>балет</span>,
-      <span [ngClass]="{step3: step > 2}"><b>АР</b>ахис</span>
+      <span class="option" [ngClass]="{step1: step > 0, 'option--active': step > 0}"><b>ОР</b>ангутанг</span>,
+      <span class="option" [ngClass]="{step2: step > 1, 'option--active': step > 1}"><b>АР</b>балет</span>,
+      <span class="option" [ngClass]="{step3: step > 2, 'option--active': step > 2}"><b>АР</b>ахис</span>
     </p>
 
     <div class="ion-text-center">
-      <ion-button (click)="start()">Начать тренировку</ion-button>
+      <ion-button (click)="start()">Cominciamo! Начать тренировку</ion-button>
     </div>
   </div>
 </ion-content>

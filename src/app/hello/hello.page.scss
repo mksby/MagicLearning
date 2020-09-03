@@ -24,3 +24,14 @@ p {
     right: 0;
     width: 40px;
 }
+
+.option {
+    padding: 5px 0;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.option--active {
+    padding: 5px 7px;
+    color: #fff;
+}
