@@ -1,5 +1,7 @@
 {
   "name": "MagicLearning",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
